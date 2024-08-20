@@ -1,0 +1,19 @@
+#root {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.animation-button {
+  animation: change-color 1s ease-in-out;
+}
+@keyframes change-color {
+  0% {
+    background-color: rgba(253, 163, 163, 0.1);
+  }
+  50% {
+    background-color: rgba(253, 163, 163, 0.5);
+  }
+  100% {
+    background-color: rgba(253, 163, 163, 1);
+  }
+}
