@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const MiniGame = () => {
-  const status = useMemo(() => ({ start: 0, clear: 1, over: 2 }));
+  const status = useMemo(() => ({ start: 0, clear: 1, over: 2 }), []);
   const ref = useRef();
   const inputRef = useRef();
   const [pointList, setPointList] = useState([]);
@@ -78,7 +78,7 @@ const MiniGame = () => {
   return (
     <div>
       {start != status.clear && start != status.over ? (
-        <h2>LET'S PLAY</h2>
+        <h2>LET&apos;S PLAY</h2>
       ) : start === status.clear ? (
         <h2 style={{ color: "green" }}>ALL CLEARED</h2>
       ) : (
@@ -93,13 +93,16 @@ const MiniGame = () => {
         <label>Time:</label>
         <label style={{ marginLeft: "100px" }}>{timmer.toFixed(1)}s</label>
       </div>
-      <button onClick={handleRenderItem} style={{ border: "1px solid black",margin:"8px 0" }}>
+      <button
+        onClick={handleRenderItem}
+        style={{ border: "1px solid black", margin: "8px 0" }}
+      >
         {start === -1 ? "Play" : "Restart"}
       </button>
       <div
         ref={ref}
         style={{
-          width: "70%",
+          width: "100%",
           border: "1px solid black",
           height: "70vh",
           position: "relative",
