@@ -17,7 +17,7 @@ const MiniGame = () => {
       const maxY = ref.current.offsetHeight - 50;
       const maxX = ref.current.offsetWidth - 50;
       const arr = [];
-      for (let i = 0; i < inputRef.current.value; i++) {
+      for (let i = 1; i <= inputRef.current.value; i++) {
         arr.push({
           x: Math.random() * maxX,
           y: Math.random() * maxY,
