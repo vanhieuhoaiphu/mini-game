@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import App from "./fire";
+import "./App.css"
 
 const MiniGame = () => {
   const status = useMemo(() => ({ start: 0, clear: 1, over: 2 }), []);
@@ -24,6 +24,7 @@ const MiniGame = () => {
           y: Math.random() * maxY,
           value: i,
           checked: false,
+          
         });
       }
       setPointList(arr);
@@ -87,30 +88,32 @@ const MiniGame = () => {
       )}
       <div>
         <label>Point:</label>
-        <input ref={inputRef} type="number" style={{ marginLeft: "100px" }} />
+        <input className="beautiful-input" ref={inputRef} type="number" style={{ marginLeft: "100px" }} />
       </div>
       <div>
         <label>Time:</label>
         <label style={{ marginLeft: "100px" }}>{timmer.toFixed(1)}s</label>
       </div>
       <button
+      className="button"
         onClick={handleRenderItem}
-        style={{ border: "1px solid black", margin: "8px 0" }}
+      
       >
         {start === -1 ? "Play" : "Restart"}
       </button>
       <button
         onClick={handleRenderItem}
-        style={{ border: "1px solid black", margin: "8px 0" }}
+         className="button"
       >
         Auto Play
       </button>
       <div style={
         {
-          border: "1px solid black",
           padding:"0 50px 50px 0"
         }
-      }>
+      } 
+      className="component"
+      >
       <div
         ref={ref}
         style={{
