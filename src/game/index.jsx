@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import App from "./fire";
 
 const MiniGame = () => {
   const status = useMemo(() => ({ start: 0, clear: 1, over: 2 }), []);
@@ -14,8 +15,8 @@ const MiniGame = () => {
       setStart(status.start);
       setTimer(0);
       setStartTimer(true);
-      const maxY = ref.current.offsetHeight - 50;
-      const maxX = ref.current.offsetWidth - 50;
+      const maxY = 100;
+      const maxX = 100;
       const arr = [];
       for (let i = 1; i <= inputRef.current.value; i++) {
         arr.push({
@@ -84,7 +85,6 @@ const MiniGame = () => {
       ) : (
         <h2 style={{ color: "red" }}>GAME OVER</h2>
       )}
-
       <div>
         <label>Point:</label>
         <input ref={inputRef} type="number" style={{ marginLeft: "100px" }} />
@@ -99,11 +99,22 @@ const MiniGame = () => {
       >
         {start === -1 ? "Play" : "Restart"}
       </button>
+      <button
+        onClick={handleRenderItem}
+        style={{ border: "1px solid black", margin: "8px 0" }}
+      >
+        Auto Play
+      </button>
+      <div style={
+        {
+          border: "1px solid black",
+          padding:"0 50px 50px 0"
+        }
+      }>
       <div
         ref={ref}
         style={{
           width: "100%",
-          border: "1px solid black",
           height: "70vh",
           position: "relative",
         }}
@@ -116,8 +127,8 @@ const MiniGame = () => {
               width: "50px",
               height: "50px",
               zIndex: inputRef.current.value - item.value,
-              left: item.x,
-              top: item.y,
+              left: `${item.x}%`,
+              top: `${item.y}%`,
               borderRadius: "100%",
               border: "1px solid black",
               textAlign: "center",
@@ -131,6 +142,8 @@ const MiniGame = () => {
           </button>
         ))}
       </div>
+      </div>
+     
     </div>
   );
 };
