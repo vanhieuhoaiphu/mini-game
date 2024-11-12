@@ -65,6 +65,7 @@ const Item = ({
   }, []);
   return (
     <button
+      disabled={checked}
       style={{
         position: "absolute",
         width: "50px",
