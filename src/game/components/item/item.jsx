@@ -65,7 +65,7 @@ const Item = ({
   }, []);
   return (
     <button
-      disabled={checked}
+      disabled={checked || isOver}
       style={{
         position: "absolute",
         width: "50px",
